@@ -12,14 +12,15 @@
 	<br>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<form>
+			<form action=" {{route('do_login')}} " method="post">
+				{{csrf_field()}}
 				<div class="form-group">
-					<label>MASUKAN EMAIL</label>
-					<input type="email" name="email" class="form-control">
+					<label>MASUKAN USERNAME ATAU EMAIL</label>
+					<input type="text" name="email" class="form-control">
 				</div>
 				<div class="form-group">
 					<label>MASUKAN PASSWORD</label>
-					<input type="password" name="pswd" class="form-control">
+					<input type="password" name="password" class="form-control">
 				</div>
 				<input type="submit" name="simpan" value="REGISTER" class="btn btn-info" >
 			</form>

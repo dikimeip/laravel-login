@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class LoginController extends Controller
 {
@@ -34,7 +36,20 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        if (Auth::attempt([
+            'email' => $request->email,    
+            'password' => $request->password
+            ])) {
+            return redirect('/');
+        } elseif (Auth::attempt([
+            'username' => $request->email,    
+            'password' => $request->password
+            ])) {
+            return redirect('/');
+        } else {
+            return "gagal";
+        }
     }
 
     /**
