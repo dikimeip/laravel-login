@@ -12,26 +12,23 @@
 	<br>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<form>
+			<form action=" {{route('register.tambah')}} " method="post">
+				{{csrf_field()}}
 				<div class="form-group">
 					<label>MASUKAN EMAIL</label>
-					<input type="email" name="email" class="form-control">
+					<input type="email" name="email" class="form-control" required="">
 				</div>
 				<div class="form-group">
 					<label>MASUKAN USERNAME</label>
-					<input type="text" name="username" class="form-control">
+					<input type="text" name="username" class="form-control" required="">
 				</div>
 				<div class="form-group">
 					<label>MASUKAN NAMA</label>
-					<input type="text" name="nama" class="form-control">
+					<input type="text" name="nama" class="form-control" required="">
 				</div>
 				<div class="form-group">
 					<label>MASUKAN PASSWORD</label>
-					<input type="password" name="ps1" class="form-control">
-				</div>
-				<div class="form-group">
-					<label>ULANGI PASSWORD</label>
-					<input type="password" name="ps2" class="form-control">
+					<input type="password" name="ps1" class="form-control" required=""> 
 				</div>
 				<input type="submit" name="simpan" value="REGISTER" class="btn btn-info" >
 			</form>

@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/register','RegisterController@index');
+Route::post('/register','RegisterController@store')->name('register.tambah');
 Route::get('/login','LoginController@index');
