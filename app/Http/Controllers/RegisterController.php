@@ -36,12 +36,13 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         User::create([
-            'username' => $request->username,
             'name' => $request->nama,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'role_id' => 1
+            'role_id' => 1,
+            'username' => $request->username,
         ]);
+
     }
 
     /**
