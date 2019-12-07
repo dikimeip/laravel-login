@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login','login@index');
+Route::get('/login','login@index')->middleware('guest');
 Route::post('/login','login@Masuk')->name('do_login');
 Route::get('/logout','login@index');
-Route::get('/pengguna','Berhasil@pengguna');
-Route::get('/penggurus','Berhasil@penggurus');
+Route::get('/pengguna','Berhasil@pengguna')->middleware('auth:pengguna');
+Route::get('/penggurus','Berhasil@penggurus')->middleware('auth:penggurus');
 

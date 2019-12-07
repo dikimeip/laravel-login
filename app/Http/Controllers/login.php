@@ -22,8 +22,9 @@ class login extends Controller
     		//loginusingid session
     		Auth::guard('pengguna')->LoginUsingId($data1[0]['id']);
     		return redirect('/pengguna');
+    		
     	} elseif (count($data2)) {
-    		Auth::guard('penggurus')->LoginUsingId($data1[0]['id']);
+    		Auth::guard('penggurus')->LoginUsingId($data2[0]['id']);
     		return redirect('/penggurus');
     	} else {
     		return 'gagal';
@@ -43,3 +44,5 @@ class login extends Controller
 
 
 }
+
+//setting middlewhere->redirectauth
