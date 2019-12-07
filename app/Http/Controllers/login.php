@@ -18,12 +18,12 @@ class login extends Controller
     {
     	$data1 = Pengguna::where('username',$request->email)->where('password',$request->password)->get();
     	$data2 = Penggurus::where('username',$request->email)->where('password',$request->password)->get();
-    	if (count($data1)) {
+    	if (count($data1) > 0 ) {
     		//loginusingid session
     		Auth::guard('pengguna')->LoginUsingId($data1[0]['id']);
     		return redirect('/pengguna');
     		
-    	} elseif (count($data2)) {
+    	} elseif (count($data2) > 0) {
     		Auth::guard('penggurus')->LoginUsingId($data2[0]['id']);
     		return redirect('/penggurus');
     	} else {
