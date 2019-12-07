@@ -36,20 +36,32 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        
-        if (Auth::attempt([
-            'email' => $request->email,    
-            'password' => $request->password
-            ])) {
-            return redirect('/');
-        } elseif (Auth::attempt([
-            'username' => $request->email,    
-            'password' => $request->password
-            ])) {
+
+        $user_data = array(
+            'email' => $request->get('email'),
+            'password' => $request->get('password')
+        );
+
+        if (Auth::attempt($user_data)) {
             return redirect('/');
         } else {
-            return "gagal";
+            return "Gagal Login";
         }
+
+         
+        // if (Auth::attempt([
+        //     'email' => $request->email,    
+        //     'password' => $request->password
+        //     ])) {
+        //     return redirect('/');
+        // } elseif (Auth::attempt([
+        //     'username' => $request->email,    
+        //     'password' => $request->password
+        //     ])) {
+        //     return redirect('/');
+        // } else {
+        //     return "gagal";
+        // }
     }
 
     /**
