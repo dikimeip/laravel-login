@@ -46,6 +46,26 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'penggurus' => [
+            'driver' => 'session',
+            'provider' => 'penggurus',
+        ],
+
+        'apipenggurus' => [
+            'driver' => 'token',
+            'provider' => 'penggurus',
+            'hash' => false,
+        ],
+        'penggurus' => [
+            'driver' => 'session',
+            'provider' => 'penggurus',
+        ],
+
+        'apipenggurus' => [
+            'driver' => 'token',
+            'provider' => 'penggurus',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -69,6 +89,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'pengunna' => [
+            'driver' => 'eloquent',
+            'model' => App\Login_Pengguna::class,
+        ],
+        'penggurus' => [
+            'driver' => 'eloquent',
+            'model' => App\Login_Penggurus::class,
         ],
 
         // 'users' => [
