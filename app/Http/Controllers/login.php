@@ -18,9 +18,12 @@ class login extends Controller
     	$data1 = Pengguna::where('username',$request->email)->where('password',$request->password)->get();
     	$data2 = Penggurus::where('username',$request->email)->where('password',$request->password)->get();
     	if (count($data1)) {
-    		return 'Pengguna';
+    		//loginusingid session
+    		Auth::guard('pengguna')->LoginUsingId($data1[0]['id']);
+    		return redirect('/pengguna')
     	} elseif (count($data2)) {
-    		return 'Penggurus';
+    		Auth::guard('penggurus')->LoginUsingId($data1[0]['id']);
+    		return redirect('/penggurus')
     	} else {
     		return 'gagal';
     	}
@@ -28,7 +31,13 @@ class login extends Controller
 
      public function Keluar()
     {
-    	
+    	if (Auth::guard('penggurus')->check()) {
+    		Auth::guard('penggurus')->logout();
+    	}elseif ((Auth::guard('pengguna')->check()) {
+    		Auth::guard('pengguna')->logout();
+    	}
+
+    	return redirect('/login');
     }
 
 

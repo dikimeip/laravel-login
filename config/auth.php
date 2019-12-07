@@ -56,14 +56,14 @@ return [
             'provider' => 'penggurus',
             'hash' => false,
         ],
-        'penggurus' => [
+        'pengguna' => [
             'driver' => 'session',
-            'provider' => 'penggurus',
+            'provider' => 'pengguna',
         ],
 
-        'apipenggurus' => [
+        'apipengguna' => [
             'driver' => 'token',
-            'provider' => 'penggurus',
+            'provider' => 'pengguna',
             'hash' => false,
         ],
     ],
@@ -90,7 +90,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-        'pengunna' => [
+        'pengguna' => [
             'driver' => 'eloquent',
             'model' => App\Login_Pengguna::class,
         ],

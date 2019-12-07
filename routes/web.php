@@ -17,4 +17,7 @@ Route::get('/', function () {
 
 Route::get('/login','login@index');
 Route::post('/login','login@Masuk')->name('do_login');
+Route::get('/logout','login@index');
+Route::get('/pengguna','Berhasil@pengguna');
+Route::get('/penggurus','Berhasil@penggurus');
 
