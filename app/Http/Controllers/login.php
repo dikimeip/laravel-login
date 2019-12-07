@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pengguna;
 use App\Penggurus;
+use Illuminate\Support\Facades\Auth;
 
 class login extends Controller
 {
@@ -20,10 +21,10 @@ class login extends Controller
     	if (count($data1)) {
     		//loginusingid session
     		Auth::guard('pengguna')->LoginUsingId($data1[0]['id']);
-    		return redirect('/pengguna')
+    		return redirect('/pengguna');
     	} elseif (count($data2)) {
     		Auth::guard('penggurus')->LoginUsingId($data1[0]['id']);
-    		return redirect('/penggurus')
+    		return redirect('/penggurus');
     	} else {
     		return 'gagal';
     	}
@@ -33,7 +34,7 @@ class login extends Controller
     {
     	if (Auth::guard('penggurus')->check()) {
     		Auth::guard('penggurus')->logout();
-    	}elseif ((Auth::guard('pengguna')->check()) {
+    	} elseif (Auth::guard('pengguna')->check()) {
     		Auth::guard('pengguna')->logout();
     	}
 
